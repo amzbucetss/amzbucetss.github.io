@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+*{
+    font-family: 'Roboto', sans-serif;
+    scrollbar-width: thin;
+    scrollbar-color: #FF9900 #e6e6e6;
+}
+::-webkit-scrollbar{
+    width: 8px;
+}
+::-webkit-scrollbar-track{
+    background-color: #e6e6e6;
+}
+::-webkit-scrollbar-thumb{
+    background-color: #FF9900;
+}
+::-webkit-scrollbar-thumb:hover{
+    background-color: #f59506;
+}
+.amz_gb{
+    color: #FF9900 !important;
+}
+.amz_color{
+    color: #FF9900 !important;
+}
+.aws-f{
+    filter: brightness(0) invert(1);
+}
+.white-color{
+    color: white;
+}
+.buckets {
+    font-family: monospace, arial;
+    background-color: #e9ecef;
+    opacity: 1;
+}
+
+.card-header {
+    border-color: #ffffff;
+    background-color: #ff9900;
+}
+.nav-link {
+    color: #ffffff;
+}
+.nav-tabs .nav-link:hover {
+    color: #686868;
+}
+.nav-tabs .nav-link {
+    border: 0px solid transparent;
+}
+.form-check-input:checked {
+    background-color: #ff9900;
+    border-color: #dd8603;
+}
+
+.btn-copy{
+    position: relative;
+}
+
+.btn-clipboard {
+    position: absolute;
+    top: 0.25rem;
+    right: 0.65rem;
+    z-index: 10;
+    display: block;
+    padding: .25rem .5rem;
+    font-size: .65em;
+    color: #ff9900;
+    background-color: #fff;
+    border: 1px solid;
+    border-radius: .25rem;
+  }
+  .btn-clipboard:hover, .btn-clipboard:focus {
+    color: #fff;
+    background-color: #ff9900;
+  }
+
+  .bs-tooltip-top .tooltip-arrow::before, .bs-tooltip-auto[data-popper-placement^=top] .tooltip-arrow::before {
+    border-top-color: #ff9900;
+}
+.bs-tooltip-end .tooltip-arrow::before, .bs-tooltip-auto[data-popper-placement^=right] .tooltip-arrow::before {
+    border-right-color: #ff9900;
+}
+.bs-tooltip-bottom .tooltip-arrow::before, .bs-tooltip-auto[data-popper-placement^=bottom] .tooltip-arrow::before {
+    border-bottom-color: #ff9900;
+}
+.bs-tooltip-start .tooltip-arrow::before, .bs-tooltip-auto[data-popper-placement^=left] .tooltip-arrow::before {
+    border-left-color: #ff9900;
+}
+.tooltip-inner {
+    color: #fff;
+    background-color: #ff9900;
+}
