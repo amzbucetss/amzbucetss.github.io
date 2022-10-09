@@ -1,0 +1,235 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+
+    <title>BUCKETS GENERATOR</title>
+    
+  </head>
+  <body>
+    
+    <div class="container-lg mt-4 mb-4">
+          <div class="card">
+            <div class="card-header ">
+              <h3 class="text-uppercase text-center white-color mt-4">
+                aws cli command generator
+              </h3>
+              <ul class="nav nav-tabs card-header-tabs">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="true" data-bs-toggle="tab" data-bs-target="#tab-create" href="#"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Create</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="true"  data-bs-toggle="tab" data-bs-target="#tab-copy" href="#"><i class="fa fa-clone" aria-hidden="true"></i> Copy</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="true"  data-bs-toggle="tab" data-bs-target="#tab-delete" href="#"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</a>
+                </li>
+              </ul>
+            </div>
+            <div class="card-body">
+              <div class="tab-content">
+
+                <div class="tab-pane active show fade" id="tab-create">
+                  <div class="row">
+                    <div class="col-lg-4">
+                      <form class="row g-3 needs-validation" onsubmit="event.preventDefault();" novalidate>
+                        <div class="col-md-12">
+                          <label for="region" class="form-label">AWS Region Name</label>
+                          <select class="form-select" id="region" required>
+                            <option value="us-east-1" selected>US East (N. Virginia)</option>
+                            <option value="us-east-2">US East (Ohio)</option>
+                            <option value="us-west-1">US West (N. California)</option>
+                            <option value="us-west-2">US West (Oregon)</option>
+                            <option value="af-south-1">Africa (Cape Town)</option>
+                            <option value="ap-east-1">Asia Pacific (Hong Kong)</option>
+                            <option value="ap-southeast-3">Asia Pacific (Jakarta)</option>
+                            <option value="ap-south-1">Asia Pacific (Mumbai)</option>
+                            <option value="ap-northeast-3">Asia Pacific (Osaka)</option>
+                            <option value="ap-northeast-2">Asia Pacific (Seoul)</option>
+                            <option value="ap-southeast-1">Asia Pacific (Singapore)</option>
+                            <option value="ap-southeast-2">Asia Pacific (Sydney)</option>
+                            <option value="ap-northeast-1">Asia Pacific (Tokyo)</option>
+                            <option value="ca-central-1">Canada (Central)</option>
+                            <option value="cn-north-1">China (Beijing)</option>
+                            <option value="cn-northwest-1">China (Ningxia)</option>
+                            <option value="eu-central-1">Europe (Frankfurt)</option>
+                            <option value="eu-west-1">Europe (Ireland)</option>
+                            <option value="eu-west-2">Europe (London)</option>
+                            <option value="eu-south-1">Europe (Milan)</option>
+                            <option value="eu-west-3">Europe (Paris)</option>
+                            <option value="eu-north-1">Europe (Stockholm)</option>
+                            <option value="sa-east-1">South America (São Paulo)</option>
+                            <option value="me-south-1">Middle East (Bahrain)</option>
+                            <option value="us-gov-east-1">AWS GovCloud (US-East)</option>
+                            <option value="us-gov-west-1">AWS GovCloud (US-West)</option>
+                          </select>
+                          <div class="invalid-feedback">
+                            Please select a valid state.
+                          </div>
+                        </div>
+                        <div class="col-md-6 position-relative">
+                        <label for="length" class="form-label">Characters Length</label>
+                        <input type="number" class="form-control" id="length" min="3" max="63" step="1" value="18" required>
+                        <div class="invalid-tooltip">
+                          Please enter a valid Characters Length {3-63}
+                        </div>
+                        </div>
+                        <div class="col-md-6 position-relative">
+                        <label for="bucketNumber" class="form-label">Buckets Number</label>
+                        <input type="number" class="form-control" id="bucketNumber" min="1" max="1000" step="1" value="10" required>
+                        <div class="invalid-tooltip">
+                          Please enter a valid Buckets Number {1-1000}
+                        </div>
+                        </div>
+                        <br>
+                        <div class="col-12">
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="lowercaser" checked>
+                            <label class="form-check-label" for="lowercaser">
+                              Include Lowercase Letters
+                            </label>
+                            <div class="invalid-feedback">
+                              You must agree before submitting.
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-12">
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="number" checked>
+                            <label class="form-check-label" for="number">
+                              Include Numbers
+                            </label>
+                            <div class="invalid-feedback">
+                              You must agree before submitting.
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-12">
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="symbol">
+                            <label class="form-check-label" for="symbol">
+                              Include symbols
+                            </label>
+                            <div class="invalid-feedback">
+                              You must agree before submitting.
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-12 col-xxl-6 mt-5 mb-5">
+                        <div class="d-grid gap-2">
+                        <button class="btn btn-outline-warning" id="generateRandom"><i class="fa fa-cog" aria-hidden="true"></i> Generate Random</button>
+                        <button class="btn btn-outline-info" id="generateCLI"><i class="fa fa-cogs" aria-hidden="true"></i> Generate CLI</button>
+                        </div>
+                        </div>
+                      </form>
+                      </div>
+                      <div class="col-lg-6 offset-lg-1">
+                      <div class="mb-3">
+                        <label for="createResultRandom" class="form-label">Random Buckets</label>
+                        <div class="btn-copy">
+                          <button type="button" id="createResultRandomCopy" class="btn-clipboard btn-copy js-tooltip-RandomCopy js-RandomCopy" title="Copy to clipboard" data-bs-toggle="tooltip" data-bs-placement="top"><i class="fa fa-clipboard fa-2x" aria-hidden="true"></i></button>
+                          <textarea class="form-control buckets" id="createResultRandom" rows="10"></textarea>
+                        </div>
+                      </div>
+                      </div>
+                      <div class="col-lg-6 offset-lg-5">
+                        <div class="mb-3">
+                          <label for="createResultCLI" class="form-label">CLI Command</label>
+                          <div class="btn-copy">
+                            <button type="button" id="createResultCLICopy" class="btn-clipboard btn-copy js-tooltip-CLICopy js-CLICopy" title="Copy to clipboard" data-bs-toggle="tooltip" data-bs-placement="top"><i class="fa fa-clipboard fa-2x" aria-hidden="true"></i></button>
+                          <textarea class="form-control buckets" id="createResultCLI" rows="10"></textarea>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+
+                <div class="tab-pane fade" id="tab-copy">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <form class="row g-3 needs-validation" onsubmit="event.preventDefault();" novalidate>
+                        <div class="col-12">
+                          <div class="row">
+                            <div class="col-md-6">
+                              <label for="originalBucket" class="form-label">Original Bucket</label>
+                              <input type="text" class="form-control" id="originalBucket" value="" placeholder="paste your original bucket here" required>
+                              <div class="valid-feedback">
+                                Looks good!
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="mb-12">
+                            <label for="bucketsCpoyResult" class="form-label ">List Buckets</label>
+                            <textarea class="form-control buckets" id="bucketsCpoyResult" rows="10"></textarea>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="mb-3">
+                            <label for="copyResultCLI" class="form-label">AWS CLI Command For Copy Buckets</label>
+                            <div class="btn-copy">
+                              <button type="button" id="copyResultCLICopy" class="btn-clipboard btn-copy js-tooltip-copyCLICopy js-copyCLICopy" title="Copy to clipboard" data-bs-toggle="tooltip" data-bs-placement="top"><i class="fa fa-clipboard fa-2x" aria-hidden="true"></i></button>
+                              <textarea class="form-control buckets" id="copyResultCLI" rows="10"></textarea>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="d-grid gap-2">
+                          <button class="btn btn-outline-warning" id="generateCopyCLI"><i class="fa fa-cogs" aria-hidden="true"></i> Generate</button>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="tab-pane fade" id="tab-delete">
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <form class="row g-3 needs-validation" onsubmit="event.preventDefault();" novalidate>
+                        <div class="col-md-12">
+                          <div class="mb-12">
+                            <label for="deleteListsCLI" class="form-label">List Buckets</label>
+                            <textarea class="form-control buckets" id="deleteListsCLI" rows="10"></textarea>
+                          </div>
+                        </div>
+                        <div class="col-md-12">
+                          <div class="d-grid gap-2">
+                          <button class="btn btn-outline-warning" id="generateDeleteCLI"><i class="fa fa-cogs" aria-hidden="true"></i> Generate</button>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="mb-3">
+                        <label for="b-text" class="form-label">AWS CLI Command For Delete Buckets</label>
+                        <div class="btn-copy">
+                          <button type="button" id="deleteResultCLICopy" class="btn-clipboard btn-copy js-tooltip-deleteCLICopy js-deleteCLICopy" title="Copy to clipboard" data-bs-toggle="tooltip" data-bs-placement="top"><i class="fa fa-clipboard fa-2x" aria-hidden="true"></i></button>
+                          <textarea class="form-control buckets" id="deleteResultCLI" rows="10"></textarea>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+    </div>
+
+    <script src="js/popper.min.js" ></script>
+    <script src="js/jquery.min.js" ></script>
+    <script src="js/bootstrap.min.js" ></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
